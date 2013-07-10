@@ -48,7 +48,7 @@ group :development do
 end
 
 group :test do
-  gem 'webrat', '0.7.1'
+  gem 'capybara', '~> 2.1.0'
   gem 'spork', '~> 1.0rc'
   gem 'factory_girl_rails'
   # gem 'autotest', '4.4.6'
