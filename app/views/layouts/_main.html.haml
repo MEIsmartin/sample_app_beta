@@ -1,0 +1,19 @@
+%head
+  %title= "Rails App | #{yield(:title)}"
+  = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+  = javascript_include_tag "application", "data-turbolinks-track" => true
+  = javascript_include_tag :modernizr
+  = csrf_meta_tags
+%body
+  .master
+    %header
+      = link_to 'Rails App', '#', id: 'logo'
+      %nav.main
+        %ul
+          %li= link_to 'Home', '#'
+          %li= link_to 'Help', '#'
+          %li= link_to 'Sign In', '#'
+    .main
+      = yield
+    %footer
+      = link_to image_tag('stm.jpg', {alt: 'Shaun TM', height: 100, width: 100}), 'http://shauntm.com'

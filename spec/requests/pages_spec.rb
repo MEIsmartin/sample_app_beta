@@ -10,7 +10,7 @@ describe "Static Pages" do
 
     it "should have the right title" do
       visit '/pages/home'
-      page.should have_title('Home')
+      page.should have_title('Rails App | Home')
     end
 
   end  
@@ -24,7 +24,7 @@ describe "Static Pages" do
 
     it "should have the right title" do
       visit '/pages/help'
-      page.should have_title('Help')
+      page.should have_title('Rails App | Help')
     end
 
   end 
@@ -38,7 +38,7 @@ describe "Static Pages" do
 
     it "should have the right title" do
       visit '/pages/about'
-      page.should have_title('About Us')
+      page.should have_title('Rails App | About Us')
     end
 
   end 
@@ -52,7 +52,7 @@ describe "Static Pages" do
 
     it "should have the right title" do
       visit '/pages/contact'
-      page.should have_title('Contact Us')
+      page.should have_title('Rails App | Contact Us')
     end
 
   end 
