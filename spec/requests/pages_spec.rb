@@ -1,59 +1,57 @@
 require 'spec_helper'
 
 describe "Static Pages" do
+
+  subject { page }
+
   describe "Home Page" do
 
-    it "should have the h1 'Sample App'" do
-      visit '/pages/home'
-      page.should have_selector('h1', text: 'Sample App')
-    end
+    before { visit root_path }
 
-    it "should have the right title" do
-      visit '/pages/home'
-      page.should have_title('Rails App | Home')
-    end
+    it { should have_selector('h1', text: 'Rails App') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Home') }
 
   end  
 
   describe "Help Page" do
 
-    it "should have the h1 'Help'" do
-      visit '/pages/help'
-      page.should have_selector('h1', text: 'Help')
-    end
+    before { visit help_path }
 
-    it "should have the right title" do
-      visit '/pages/help'
-      page.should have_title('Rails App | Help')
-    end
+    it { should have_selector('h1', text: 'Help') }
+    it { should have_title(full_title('Help')) }
 
   end 
 
   describe "About Page" do
 
-    it "should have the h1 'About Us'" do
-      visit '/pages/about'
-      page.should have_selector('h1', text: 'About Us')
-    end
+    before { visit about_path }
 
-    it "should have the right title" do
-      visit '/pages/about'
-      page.should have_title('Rails App | About Us')
-    end
+    it { should have_selector('h1', text: 'About Us') }
+    it { should have_title(full_title('About Us')) }
 
   end 
 
   describe "Contact Page" do
 
-    it "should have the h1 'Contact Us'" do
-      visit '/pages/contact'
-      page.should have_selector('h1', text: 'Contact Us')
-    end
+    before { visit contact_path }
 
-    it "should have the right title" do
-      visit '/pages/contact'
-      page.should have_title('Rails App | Contact Us')
-    end
+    it { should have_selector('h1', text: 'Contact Us') }
+    it { should have_title(full_title('Contact Us')) }
 
   end 
+
+  it "should have the right links on the layout" do
+    visit root_path
+    click_link "About"
+    page.should have_title(full_title('About Us'))
+    click_link "Help"
+    page.should have_title(full_title('Help'))
+    click_link "Contact"
+    page.should have_title(full_title('Contact'))
+    click_link "Home"
+    click_link "Sign up now!"
+    page.should have_title(full_title('Sign Up'))
+
+  end
 end
