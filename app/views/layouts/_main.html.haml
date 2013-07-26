@@ -14,6 +14,8 @@
           %li= link_to 'Help', help_path
           %li= link_to 'Sign In', signup_path
     .main
+      - flash.each do |key, value|
+        .flash(class=key)= value
       = yield
     %footer
       = link_to image_tag('stm.jpg', {alt: 'Shaun TM', height: 100, width: 100}), 'http://shauntm.com'
